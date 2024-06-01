@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home - Ghost-Protocal</title>
+    <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+
+    <style>
+        /* footer */
+        @import url(https://fonts.googleapis.com/css?family=Open+Sans:400,500,300,700);
+
+        footer {
+            font-family: Open Sans;
+            position: absolute;
+            height: 7vh;
+            bottom: 0;
+        }
+
+        .footer-distributed {
+            background: #0f0e0e;
+            opacity: 0.7;
+            box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.12);
+            box-sizing: border-box;
+            width: 100vw;
+            text-align: center;
+            font: bold 16px sans-serif;
+            padding: 5px 5px;
+        }
+
+        .footer-distributed .footer-left,
+        .footer-distributed .footer-center,
+        .footer-distributed .footer-right {
+            display: inline-block;
+            vertical-align: top;
+        }
+
+        /* Footer left */
+
+        .footer-distributed .footer-left {
+            width: 40vw;
+        }
+
+        /* The company logo */
+
+        .footer-distributed h3 {
+            color: #ffffff;
+            font: normal 36px 'Open Sans', cursive;
+            margin: 0;
+        }
+
+        .footer-distributed h3 span {
+            color: lightseagreen;
+        }
+
+        /* Footer links */
+
+        .footer-distributed .footer-links {
+            color: #ffffff;
+            margin: 20px 0 12px;
+            padding: 0;
+        }
+
+        .footer-distributed .footer-links a {
+            display: inline-block;
+            line-height: 1.8;
+            font-weight: 400;
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .footer-distributed .footer-company-name {
+            color: #222;
+            font-size: 14px;
+            font-weight: normal;
+            margin: 0;
+        }
+
+        /* Footer Center */
+
+        .footer-distributed .footer-center {
+            width: 35%;
+        }
+
+        .footer-distributed .footer-center i {
+            background-color: #33383b;
+            color: #ffffff;
+            font-size: 25px;
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 42px;
+            margin: 10px 15px;
+            vertical-align: middle;
+        }
+
+        .footer-distributed .footer-center i.fa-envelope {
+            font-size: 17px;
+            line-height: 38px;
+        }
+
+        .footer-distributed .footer-center p {
+            display: inline-block;
+            color: #ffffff;
+            font-weight: 400;
+            vertical-align: middle;
+            margin: 0;
+        }
+
+        .footer-distributed .footer-center p span {
+            display: block;
+            font-weight: normal;
+            font-size: 14px;
+            line-height: 2;
+        }
+
+        .footer-distributed .footer-center p a {
+            color: lightseagreen;
+            text-decoration: none;
+            ;
+        }
+
+        .footer-distributed .footer-links a:before {
+            content: "|";
+            font-weight: 300;
+            font-size: 20px;
+            left: 0;
+            color: #fff;
+            display: inline-block;
+            padding-right: 5px;
+        }
+
+        .footer-distributed .footer-links .link-1:before {
+            content: none;
+        }
+
+        /* Footer Right */
+
+        .footer-distributed .footer-right {
+            width: 20px;
+        }
+
+
+
+        .footer-distributed .footer-icons {
+            margin-top: 5px;
+        }
+
+        .footer-distributed .footer-icons a {
+            display: inline-block;
+            width: 35px;
+            height: 35px;
+            cursor: pointer;
+            background-color: #33383b;
+            border-radius: 2px;
+
+            font-size: 20px;
+            color: #ffffff;
+            text-align: center;
+            line-height: 35px;
+
+            margin-right: .3px;
+            margin-bottom: 5px;
+        }
+
+        /* If you don't want the footer to be responsive, remove these media queries */
+
+        @media (max-width: 880px) {
+
+            .footer-distributed {
+                font: bold 14px sans-serif;
+            }
+
+            .footer-distributed .footer-left,
+            .footer-distributed .footer-center,
+            .footer-distributed .footer-right {
+                display: block;
+                width: 100%;
+                margin-bottom: 40px;
+                text-align: center;
+            }
+
+            .footer-distributed .footer-center i {
+                margin-left: 0;
+            }
+
+        }
+    </style>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic+Coding&display=swap');
+
+        @import url('https://fonts.googleapis.com/css2?family=Jersey+25&display=swap');
+
+
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        main {
+
+            position: relative;
+        }
+
+        header {
+            height: 93vh;
+            width: 15vw;
+            background-color: rgb(40, 33, 33);
+            border: 2px solid #0f0e0e;
+            position: relative;
+            color: #ffffff;
+        }
+
+        nav {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+        }
+
+        nav>img {
+            margin-top: 10px;
+        }
+
+        .acc {
+            position: absolute;
+            bottom: 10px;
+        }
+
+        .acc>img {
+            border-radius: 100%;
+            border: 2px solid whitesmoke;
+        }
+
+        nav>div {
+
+            font-family: "Nanum Gothic Coding", sans-serif;
+            font-size: 20px;
+            font-weight: 700;
+        }
+
+        ul {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            margin-top: 19px;
+        }
+        
+        body {
+            display: flex;
+            /* flex-direction: column; */
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        ul li {
+            font-size: 20px;
+            list-style: none;
+            font-weight: 500;
+            cursor: pointer;
+            margin-top: 19px;
+            font-family: "Nanum Gothic Coding", monospace;
+            width: 210px;
+            height: 90px;
+            padding: 10px 10px;
+            border: 2px solid white;
+            border-radius: 20px;
+            background-color: darkred;
+            /* position: relative; */
+
+        }
+
+        ul li:hover {
+            width: 230px;
+            height: 90px;
+            padding: 20px;
+            border: 2px solid white;
+            border-radius: 20px;
+            background-color: darkred;
+        }
+
+        .acc-info {
+            cursor: pointer;
+            margin-top: 10px;
+            font-size: 20px;
+            font-family: "Nanum Gothic Coding", sans-serif;
+        }
+
+        .l1 {
+
+            color: #fff;
+            /* background-color: #fff; */
+        }
+
+
+        canvas {
+            overflow: hidden;
+
+            height: 93vh;
+            width: 85vw;
+            background-color: black;
+            /* position: absolute; Position the canvas absolutely */
+            top: 0;
+            right: 0;
+            z-index: -1;
+        }
+
+        .heading {
+            position: absolute;
+            color: antiquewhite;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 1;
+        }
+
+        @keyframes lights {
+            0% {
+                color: hsl(5, 87%, 50%);
+                text-shadow:
+                    0 0 1em hsla(320, 100%, 50%, 0.2),
+                    0 0 0.125em hsla(320, 100%, 60%, 0.3),
+                    -1em -0.125em 0.5em hsla(40, 100%, 60%, 0),
+                    1em 0.125em 0.5em hsla(200, 100%, 60%, 0);
+            }
+
+            30% {
+                color: hsl(0, 96%, 27%);
+                text-shadow:
+                    0 0 1em hsla(12, 94%, 20%, 0.5),
+                    0 0 0.125em hsla(320, 89%, 11%, 0.5),
+                    -0.5em -0.125em 0.25em hsla(40, 100%, 60%, 0.2),
+                    0.5em 0.125em 0.25em hsla(200, 100%, 60%, 0.4);
+            }
+
+            40% {
+                color: hsl(0, 97%, 13%);
+                text-shadow:
+                    0 0 1em hsla(0, 96%, 31%, 0.5),
+                    0 0 0.125em hsla(321, 54%, 5%, 0.5),
+                    -0.25em -0.125em 0.125em hsla(40, 100%, 60%, 0.2),
+                    0.25em 0.125em 0.125em hsla(200, 100%, 60%, 0.4);
+            }
+
+            70% {
+                color: hsl(230, 100%, 1%);
+                text-shadow:
+                    0 0 1em hsla(0, 96%, 22%, 0.5),
+                    0 0 0.125em hsla(0, 97%, 11%, 0.5),
+                    0.5em -0.125em 0.25em hsla(40, 100%, 60%, 0.2),
+                    -0.5em 0.125em 0.25em hsla(200, 90%, 4%, 0.4);
+            }
+
+            100% {
+                color: hsl(230, 40%, 80%);
+                text-shadow:
+                    0 0 1em hsla(320, 100%, 50%, 0.2),
+                    0 0 0.125em hsla(320, 79%, 4%, 0.3),
+                    1em -0.125em 0.5em hsla(40, 100%, 60%, 0),
+                    -1em 0.125em 0.5em hsla(200, 100%, 60%, 0);
+            }
+
+        }
+
+
+
+        h1 {
+            margin: auto;
+            font-size: 5rem;
+            font-weight: 700;
+            font-family: "Jersey 25", sans-serif;
+  
+            animation: lights 5s 750ms linear infinite;
+        }
+        a{
+            text-decoration: none;
+            color: antiquewhite;
+        }
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <img src="drdo-removebg-preview.png" alt="DRDO">
+            <div>DRDO - AIRBORNE DEPARTMENT</div>
+            <ul>
+                <li><a href="gp.html" onclick="handleClick()"><img src="rocket-launch_1258439.png" class="l1" alt="" height="50px">&nbsp;Ghost-Protocal</a></li>
+                <li><a href="portfolio.html" onclick="hClick()"><img src="user_8647311.png" alt="" height="50px">&nbsp;Our Inspiration</a></li>
+            </ul>
+            <div class="acc">
+                <img src="nisarg passport size pic.jpg" alt="user" height="180px">
+                <div class="acc-info">
+                    <p id="username">Agent07 - <span class="username"></span></p>
+                </div>
+        </nav>
+    </header>
+    <main>
+        <canvas id="test"></canvas>
+
+        <h1 class="heading">Welcome <span class="username"></span></h1>
+      
+    </main>
+    <footer class="footer-distributed">
+        <div class="footer-center">
+            <p class="copyright">&copy; Copyright 2024 by<a href="https://www.linkedin.com/in/nisarg-vashi-b05211282/"> Nisarg Vashi <i class="fa fa-linkedin"></i></a></p>
+        </div>
+    </footer>
+    <script>
+
+    </script>
+    <script>
+        $(document).ready(()=>{
+            let loggedInUser = localStorage.getItem('username');
+            $('.username').html(loggedInUser);
+        });
+        var w = window.innerWidth,
+            h = window.innerHeight,
+            canvas = document.getElementById('test'),
+            ctx = canvas.getContext('2d'),
+            rate = 60,
+            arc = 100,
+            time,
+            count,
+            size = 7,
+            speed = 20,
+            parts = new Array,
+            colors = ['red', '#f57900', 'yellow', '#ce5c00', '#5c3566'];
+        var mouse = { x: 0, y: 0 };
+
+        canvas.setAttribute('width', w);
+        canvas.setAttribute('height', h);
+
+        function create() {
+            time = 0;
+            count = 0;
+
+            for (var i = 0; i < arc; i++) {
+                parts[i] = {
+                    x: Math.ceil(Math.random() * w),
+                    y: Math.ceil(Math.random() * h),
+                    toX: Math.random() * 5 - 1,
+                    toY: Math.random() * 2 - 1,
+                    c: colors[Math.floor(Math.random() * colors.length)],
+                    size: Math.random() * size
+                }
+            }
+        }
+
+        function particles() {
+            ctx.clearRect(0, 0, w, h);
+            canvas.addEventListener('mousemove', MouseMove, false);
+            for (var i = 0; i < arc; i++) {
+                var li = parts[i];
+                var distanceFactor = DistanceBetween(mouse, parts[i]);
+                var distanceFactor = Math.max(Math.min(15 - (distanceFactor / 10), 10), 1);
+                ctx.beginPath();
+                ctx.arc(li.x, li.y, li.size * distanceFactor, 0, Math.PI * 2, false);
+                ctx.fillStyle = li.c;
+                ctx.strokeStyle = li.c;
+                if (i % 2 == 0)
+                    ctx.stroke();
+                else
+                    ctx.fill();
+
+                li.x = li.x + li.toX * (time * 0.05);
+                li.y = li.y + li.toY * (time * 0.05);
+
+                if (li.x > w) {
+                    li.x = 0;
+                }
+                if (li.y > h) {
+                    li.y = 0;
+                }
+                if (li.x < 0) {
+                    li.x = w;
+                }
+                if (li.y < 0) {
+                    li.y = h;
+                }
+
+
+            }
+            if (time < speed) {
+                time++;
+            }
+            setTimeout(particles, 1000 / rate);
+        }
+        function MouseMove(e) {
+            mouse.x = e.layerX;
+            mouse.y = e.layerY;
+
+            //context.fillRect(e.layerX, e.layerY, 5, 5);
+            //Draw( e.layerX, e.layerY );
+        }
+        function DistanceBetween(p1, p2) {
+            var dx = p2.x - p1.x;
+            var dy = p2.y - p1.y;
+            return Math.sqrt(dx * dx + dy * dy);
+        }
+        function missionSuccessVoiceCommand() {        
+        // Use Text-to-Speech API for mission success
+        var successMessage = `Ghost Protocol Starting ....... Select Location and Missile`;
+
+        // Create a new speech synthesis utterance
+        var utterance = new SpeechSynthesisUtterance(successMessage);
+
+        // Speak the mission success message
+        speechSynthesis.speak(utterance);
+    }
+    function port() {
+     
+        // Use Text-to-Speech API for mission success
+        var successMessage = `Our inspiration Late Shree Dr. APJ Abdul kalam..`;
+
+        // Create a new speech synthesis utterance
+        var utterance = new SpeechSynthesisUtterance(successMessage);
+
+        // Speak the mission success message
+        speechSynthesis.speak(utterance);
+    }
+    function hClick() {
+        // Your logic here
+        port();
+    }
+    
+    function handleClick() {
+    // Your logic here
+    missionSuccessVoiceCommand();
+}
+        create();
+        particles();
+    </script>
+
+</body>
+
+</html>

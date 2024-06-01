@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ghost-Protocal!</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            width: 100vw;
+            height: 100vh;
+            position: relative; /* Add position relative for proper stacking */
+        }
+
+        canvas {
+            overflow: hidden;
+            width: 100vw;
+            height: 100vh;
+            background-color: black;
+            position: absolute; /* Position the canvas absolutely */
+            top: 0;
+            left: 0;
+            z-index: -1;
+        }
+
+      h1,h3{
+        color: antiquewhite;
+      }
+
+        /* Add styles for the form container */
+        .form-container {
+            position: absolute;
+            top: 50%;
+            right: 20%; /* Adjust the right position as needed */
+            transform: translateY(-50%);
+            z-index: 1; /* Ensure the form is above the canvas */
+            background-color: rgba(73, 66, 66, 0.8); /* Adjust the background color and opacity as needed */
+            padding: 30px;
+            padding-top: 0;
+            padding-bottom: 20px;
+            
+            border-radius: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 50px;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #34495e;
+            overflow: hidden; /* Prevent horizontal scrollbar */
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 80%;
+        }
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 80%;
+        }
+
+        .rocket-container {
+            position: relative;
+            border: 2px solid white;
+            margin-right: 500px; /* Adjust the margin for spacing */
+            margin-top: 190px; /* Adjust the margin for spacing */
+        }
+
+         #rocket {
+            width: 120px; /* Adjust the width of the missile */
+            height: 300px; 
+            background-color: #bdc3c7;
+            border-radius: 8px;
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            transition: transform 2s ease-in-out;
+        } 
+
+        .rocket-base {
+            width: 400px; /* Adjust the width of the missile base */
+            height: 10px; /* Adjust the height of the missile base */
+            background-color: hsl(28, 94%, 14%);
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 0 0 5px 5px; /* Adjust the border radius for missile base shape */
+        }
+
+        .rocket-fire {
+            position: absolute;
+            width: 0;
+            height: 0;
+            border-left: 10px solid transparent;
+            border-right: 10px solid transparent;
+            border-bottom: 20px solid #f39c12;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-100%);
+            animation: rocket-fire 3s forwards;
+        }
+
+        @keyframes rocket-fire {
+            0% {
+                opacity: 1;
+            }
+            100% {
+                opacity: 0;
+            }
+        }
+
+
+
+        form {
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            margin-top: 50px; /* Adjust the top margin for spacing */
+        }
+
+        label {
+            font-size: 18px;
+            color: white;
+            margin-bottom: 10px; /* Adjust the bottom margin for spacing */
+        }
+
+        input[type="password"],
+        select {
+            padding: 8px;
+            font-size: 16px;
+            margin-bottom: 20px; /* Adjust the bottom margin for spacing */
+            width: 200px; /* Adjust the width of the input/select fields */
+        }
+
+        input[type="submit"] {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #27ae60;
+            color: white;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            margin-bottom: 20px;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #219d52;
+            border-radius: 10px;
+        }
+        h3:first-child{
+            color: #578cf6;
+        }
+        h4{
+            color: #a7bfef;
+        }
+        #rocket {
+            width: 120px; /* Adjust the width of the missile */
+            height: 300px; /* Adjust the height of the missile */
+            background-color: #bdc3c7;
+            border-radius: 8px; /* Adjust the border radius for missile shape */
+            position: relative;
+            margin-right: 50px; /* Adjust the margin for spacing */
+        }
+
+        #rocket::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 50%;
+            background-color: #bdc3c7;
+            border-radius: 50% 50% 0 0; /* Adjust the border radius for missile tip */
+            top: -50%;
+            left: 0;
+        }
+
+        #rocket::after {
+            content: '';
+            position: absolute;
+            width: 30%;
+            height: 30%;
+            background-color: #bdc3c7;
+            border-radius: 50%;
+            top: 60%;
+            left: 35%;
+        }
+
+    </style>
+
+</head>
+
+<body>
+    <canvas id="test"></canvas>
+    <!-- <h1 class="heading">Your Heading Here</h1> Add your heading here -->
+    <div class="container">
+        <div class="rocket-container">
+            <div id="rocket"></div>
+            <div class="rocket-base"></div>
+        </div>
+        <div class="form-container">
+        <!-- Add your form here -->
+        <h1>GHOST<br>PROTOCOL</h1>
+        <form id="missileForm">
+            <h3>Nuclear Missile Launch System</h3>
+            <br>
+            <!-- <h3>DRDO >>></h3> -->
+            <h4>Agent07 - DRDO AIRBORNE</h4>
+            <br>
+            <br>
+            <label for="location">Select Location:</label>
+            <select id="location" name="location" required>
+                <option value="">Select</option>
+                <option value="Pakistan">Pakistan</option>
+                <option value="China">China</option>
+                <option value="Iran">Iran</option>
+                <option value="Palestine">Palestine</option>
+                <option value="England">England</option>
+                <option value="Maldives">Maldives</option>
+            </select>
+            
+            <label for="missile">Select Nuclear Missile:</label>
+            <select id="missile" name="missile" required>
+                <option value="">Select</option>
+                <option value="Agni5">Agni5</option>
+                <option value="BrahMos">BrahMos</option>
+                <option value="Prithvi">Prithvi</option>
+            </select>
+            
+            <label for="location">Password:</label>
+            <input type="password" id="password" name="password" placeholder="Enter Password" required>
+            <input type="submit" value="Launch Missile" onclick="launchMissile()">
+        </form>
+        </div>
+    </div>
+
+    <script>
+        var w = window.innerWidth,
+            h = window.innerHeight,
+            canvas = document.getElementById('test'),
+            ctx = canvas.getContext('2d'),
+            rate = 60,
+            arc = 100,
+            time,
+            count,
+            size = 7,
+            speed = 20,
+            parts = new Array,
+            colors = ['red', '#f57900', 'yellow', '#ce5c00', '#5c3566'];
+        var mouse = {
+            x: 0,
+            y: 0
+        };
+
+        canvas.setAttribute('width', w);
+        canvas.setAttribute('height', h);
+
+        function create() {
+            time = 0;
+            count = 0;
+
+            for (var i = 0; i < arc; i++) {
+                parts[i] = {
+                    x: Math.ceil(Math.random() * w),
+                    y: Math.ceil(Math.random() * h),
+                    toX: Math.random() * 5 - 1,
+                    toY: Math.random() * 2 - 1,
+                    c: colors[Math.floor(Math.random() * colors.length)],
+                    size: Math.random() * size
+                }
+            }
+        }
+
+        function particles() {
+            ctx.clearRect(0, 0, w, h);
+            canvas.addEventListener('mousemove', MouseMove, false);
+            for (var i = 0; i < arc; i++) {
+                var li = parts[i];
+                var distanceFactor = DistanceBetween(mouse, parts[i]);
+                var distanceFactor = Math.max(Math.min(15 - (distanceFactor / 10), 10), 1);
+                ctx.beginPath();
+                ctx.arc(li.x, li.y, li.size * distanceFactor, 0, Math.PI * 2, false);
+                ctx.fillStyle = li.c;
+                ctx.strokeStyle = li.c;
+                if (i % 2 == 0)
+                    ctx.stroke();
+                else
+                    ctx.fill();
+
+                li.x = li.x + li.toX * (time * 0.05);
+                li.y = li.y + li.toY * (time * 0.05);
+
+                if (li.x > w) {
+                    li.x = 0;
+                }
+                if (li.y > h) {
+                    li.y = 0;
+                }
+                if (li.x < 0) {
+                    li.x = w;
+                }
+                if (li.y < 0) {
+                    li.y = h;
+                }
+
+
+            }
+            if (time < speed) {
+                time++;
+            }
+            setTimeout(particles, 1000 / rate);
+        }
+
+        function MouseMove(e) {
+            mouse.x = e.layerX;
+            mouse.y = e.layerY;
+
+            //context.fillRect(e.layerX, e.layerY, 5, 5);
+            //Draw( e.layerX, e.layerY );
+        }
+
+        function DistanceBetween(p1, p2) {
+            var dx = p2.x - p1.x;
+            var dy = p2.y - p1.y;
+            return Math.sqrt(dx * dx + dy * dy);
+        }
+        create();
+        particles();
+
+        document.getElementById('missileForm').addEventListener('submit', function(event) {
+        var location = document.getElementById('location').value;
+        var missile = document.getElementById('missile').value;
+        var password = document.getElementById('password').value;
+        event.preventDefault(); // Prevent form submission
+
+
+        if (location.trim() === '' || missile.trim() === '' || password.trim() === '') {
+            alert('Please select location, nuclear missile, and enter password!');
+        } else if (password !== '123') {
+            alert('Incorrect password!');
+        } else {
+            countdownVoiceCommand();
+        }
+    });
+
+    function countdownVoiceCommand() {
+        // Use Text-to-Speech API for countdown
+        var countdownMessage = 'Launching in 3... 2... 1... Ignition!';
+
+        // Create a new speech synthesis utterance
+        var utterance = new SpeechSynthesisUtterance(countdownMessage);
+
+        // Speak the countdown message
+        speechSynthesis.speak(utterance);
+
+        // Wait for the countdown to finish before launching the rocket
+        utterance.onend = function() {
+            launchRocket();
+        };
+    }
+
+    function launchRocket() {
+        var rocket = document.getElementById('rocket');
+        rocket.style.transform = 'translate(-50%, -300%)';
+
+        // Create fire animation
+        var fire = document.createElement('div');
+        fire.classList.add('rocket-fire');
+        rocket.appendChild(fire);
+
+        setTimeout(function() {
+            // Reset rocket position
+         
+
+            // Remove fire animation
+            rocket.removeChild(fire);
+
+            // Call mission success voice command after animation
+            setTimeout(function() {
+                missionSuccessVoiceCommand();
+            }, 2000); // Wait for the rocket animation duration
+        }, 1000); // Wait for the rocket to reach the launch position
+    }
+
+    function missionSuccessVoiceCommand() {
+        var loc = document.getElementById('location').value;
+        var mi = document.getElementById('missile').value;
+        // Use Text-to-Speech API for mission success
+        var successMessage = `boom Mission Ghost Protocol successful, Target ${loc} Destroyed by ${mi} a gift from india, Congratulation! Agent 07 signing off.`;
+
+        // Create a new speech synthesis utterance
+        var utterance = new SpeechSynthesisUtterance(successMessage);
+
+        // Speak the mission success message
+        speechSynthesis.speak(utterance);
+    }
+    function finish() {
+        var loc = document.getElementById('location').value;
+        var mi = document.getElementById('missile').value;
+        // Use Text-to-Speech API for mission success
+        var successMessage = `Thank You Agent07! Target destroyed...`;
+
+        // Create a new speech synthesis utterance
+        var utterance = new SpeechSynthesisUtterance(successMessage);
+
+        // Speak the mission success message
+        speechSynthesis.speak(utterance);
+    }
+    function launchMissile() {
+    // After a delay of 10 seconds (10000 milliseconds), show the alert
+    setTimeout(function() {
+        finish();
+        // Redirect to another HTML page (replace 'another.html' with the desired HTML page)
+        window.location.href = "home.html";
+    }, 20000); // 100 seconds delay
+}
+    </script>
+</body>
+
+</html>

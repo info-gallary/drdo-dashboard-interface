@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!-- <link rel="stylesheet" href = "" type = "html/css"> -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>GP - LOGIN</title>
+    <style type="text/css">
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: arial;
+            /* background: linear-gradient(to right, rgb(72, 189, 189), lightskyblue); */
+            /* background-image: url("bg7.gif") ;
+      background-repeat: no-repeat;
+     background-size:cover;
+     */
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        /* background gradient animation */
+        body {
+            margin: 0;
+            /* background: linear-gradient(-45deg, #fd3e04, #670537, #024838,  #01222f); */
+            background-size: 400% 400%;
+            /* animation: gradient 4s ease infinite; */
+            height: 80vh;
+        }
+
+        @keyframes gradient {
+            0% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
+
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        body {
+            --s: 25vmin;
+            --p: calc(var(--s) / 2);
+            --c1: rgb(11, 57, 135);
+            --c2: rgb(5, 87, 70);
+            --c3: rgb(2, 13, 58);
+            --bg: var(--c3);
+            --d: 4000ms;
+            --e: cubic-bezier(0.76, 0, 0.24, 1);
+
+            background-color: var(--bg);
+            background-image:
+                linear-gradient(45deg, var(--c1) 25%, transparent 25%),
+                linear-gradient(-45deg, var(--c1) 25%, transparent 25%),
+                linear-gradient(45deg, transparent 75%, var(--c2) 75%),
+                linear-gradient(-45deg, transparent 75%, var(--c2) 75%);
+            background-size: var(--s) var(--s);
+            background-position:
+                calc(var(--p) * 1) calc(var(--p) * 0),
+                calc(var(--p) * -1) calc(var(--p) * 1),
+                calc(var(--p) * 1) calc(var(--p) * -1),
+                calc(var(--p) * -1) calc(var(--p) * 0);
+            animation:
+                color var(--d) var(--e) infinite,
+                position var(--d) var(--e) infinite;
+        }
+
+        @keyframes color {
+
+            0%,
+            25% {
+                --bg: var(--c3);
+            }
+
+            26%,
+            50% {
+                --bg: var(--c1);
+            }
+
+            51%,
+            75% {
+                --bg: var(--c3);
+            }
+
+            76%,
+            100% {
+                --bg: var(--c2);
+            }
+        }
+
+        @keyframes position {
+            0% {
+                background-position:
+                    calc(var(--p) * 1) calc(var(--p) * 0),
+                    calc(var(--p) * -1) calc(var(--p) * 1),
+                    calc(var(--p) * 1) calc(var(--p) * -1),
+                    calc(var(--p) * -1) calc(var(--p) * 0);
+            }
+
+            25% {
+                background-position:
+                    calc(var(--p) * 1) calc(var(--p) * 4),
+                    calc(var(--p) * -1) calc(var(--p) * 5),
+                    calc(var(--p) * 1) calc(var(--p) * 3),
+                    calc(var(--p) * -1) calc(var(--p) * 4);
+            }
+
+            50% {
+                background-position:
+                    calc(var(--p) * 3) calc(var(--p) * 8),
+                    calc(var(--p) * -3) calc(var(--p) * 9),
+                    calc(var(--p) * 2) calc(var(--p) * 7),
+                    calc(var(--p) * -2) calc(var(--p) * 8);
+            }
+
+            75% {
+                background-position:
+                    calc(var(--p) * 3) calc(var(--p) * 12),
+                    calc(var(--p) * -3) calc(var(--p) * 13),
+                    calc(var(--p) * 2) calc(var(--p) * 11),
+                    calc(var(--p) * -2) calc(var(--p) * 12);
+            }
+
+            100% {
+                background-position:
+                    calc(var(--p) * 5) calc(var(--p) * 16),
+                    calc(var(--p) * -5) calc(var(--p) * 17),
+                    calc(var(--p) * 5) calc(var(--p) * 15),
+                    calc(var(--p) * -5) calc(var(--p) * 16);
+            }
+        }
+
+        @media (prefers-reduced-motion) {
+            body {
+                animation: none;
+            }
+        }
+
+        /* bg over */
+        /* typewriter effect */
+        /* DEMO-SPECIFIC STYLES */
+        .typewriter h1 {
+            margin: 105px;
+            color: #fff;
+            font-family: monospace;
+            overflow: hidden;
+            /* Ensures the content is not revealed until the animation */
+            border-right: .1em solid rgb(220, 61, 9);
+            /* The typwriter cursor */
+            white-space: nowrap;
+            /* Keeps the content on a single line */
+            margin: 10px auto;
+            /* Gives that scrolling effect as the typing happens */
+            letter-spacing: .15em;
+            /* Adjust as needed */
+            animation:
+                typing 3.5s steps(30, end),
+                blink-caret .5s step-end 10;
+        }
+
+        /* The typing effect */
+        @keyframes typing {
+            from {
+                width: 0
+            }
+
+            to {
+
+                width: 50%
+            }
+        }
+
+        /* The typewriter cursor effect */
+        @keyframes blink-caret {
+
+            from,
+            to {
+                border-color: transparent
+            }
+
+            50% {
+                border-color: rgb(158, 41, 5)
+            }
+
+        }
+
+        .center {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 400px;
+            background: black;
+            opacity: 0.9;
+            border-radius: 10px;
+        }
+
+        .center h1 {
+            text-align: center;
+            padding: 0 0 20px 0;
+            border-bottom: 1px solid white;
+            color: white;
+        }
+
+        .center form {
+            padding: 0 40px;
+            box-sizing: border-box;
+        }
+
+        form .txt_field {
+            position: relative;
+            border-bottom: 2px solid white;
+            margin: 30px 0;
+        }
+
+        .txt_field input {
+            width: 100%;
+
+            padding: 0 5px;
+            height: 40px;
+            font-size: 16px;
+            letter-spacing: 1px;
+            color: white;
+            border: none;
+            background: none;
+            outline: none;
+        }
+
+        .txt_field label {
+            position: absolute;
+            top: 0;
+            left: 0;
+            font-size: 16px;
+            padding: 10px 0;
+            color: springgreen;
+            transform: translate(-50%, );
+
+            transition: 0.5s;
+        }
+
+
+
+        .txt_field input:focus~label,
+        .txt_field input:valid~label {
+
+            top: -20px;
+            left: 0;
+            font-size: 15px;
+            color: white;
+
+        }
+
+        .pass {
+            text-align: center;
+            margin-bottom: 20px;
+            color: gray;
+            cursor: pointer;
+
+        }
+
+        .pass a {
+            text-decoration: none;
+            color: rgb(2, 243, 46);
+        }
+
+        a:hover {
+
+            color: white;
+
+        }
+
+        input[type="submit"] {
+            width: 40%;
+            height: 50px;
+            border: 1px solid;
+            background: aqua;
+            color: black;
+            border-radius: 30px;
+            font-size: 18px;
+            padding: 9px 20px 9px 20px;
+            margin: 15px;
+
+        }
+
+        .radio {
+            color: springgreen;
+            padding: 5px;
+            display: inline;
+
+        }
+
+        .radio input[type="range"] {
+            width: 100%;
+
+            padding: 0 5px;
+            height: 40px;
+            font-size: 16px;
+            letter-spacing: 1px;
+            color: white;
+            border: none;
+            background: none;
+            outline: none;
+        }
+
+        /* .radio input{
+          
+        } */
+
+        .radi {
+            color: aquamarine;
+            padding: 15px;
+            margin: 10px;
+            border-radius: 20px;
+            background: rgb(51, 79, 51);
+        }
+
+        .radi select {
+            background: rgb(49, 132, 49);
+            border-radius: 200px;
+
+        }
+
+        input[type="submit"]:hover {
+            background: black;
+            color: white;
+        }
+
+        @keyframes underline {
+            0% {
+                width: 0;
+            }
+
+            100% {
+                width: 100%;
+            }
+        }
+
+        .pass {
+            position: relative;
+            display: inline-block;
+        }
+
+        .pass::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            height: 2px;
+            background-color: #06b2d4;
+            animation: underline 1s ease-in-out forwards;
+        }
+
+        /* footer */
+        @import url(https://fonts.googleapis.com/css?family=Open+Sans:400,500,300,700);
+
+        footer {
+            font-family: Open Sans;
+            position: absolute;
+            height: 7vh;
+            bottom: 0;
+        }
+
+        .footer-distributed {
+            background: #0f0e0e;
+            opacity: 0.7;
+            box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.12);
+            box-sizing: border-box;
+            width: 100vw;
+            text-align: center;
+            font: bold 16px sans-serif;
+            padding: 5px 5px;
+        }
+
+        .footer-distributed .footer-left,
+        .footer-distributed .footer-center,
+        .footer-distributed .footer-right {
+            display: inline-block;
+            vertical-align: top;
+        }
+
+        /* Footer left */
+
+        .footer-distributed .footer-left {
+            width: 40vw;
+        }
+
+        /* The company logo */
+
+        .footer-distributed h3 {
+            color: #ffffff;
+            font: normal 36px 'Open Sans', cursive;
+            margin: 0;
+        }
+
+        .footer-distributed h3 span {
+            color: lightseagreen;
+        }
+
+        /* Footer links */
+
+        .footer-distributed .footer-links {
+            color: #ffffff;
+            margin: 20px 0 12px;
+            padding: 0;
+        }
+
+        .footer-distributed .footer-links a {
+            display: inline-block;
+            line-height: 1.8;
+            font-weight: 400;
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .footer-distributed .footer-company-name {
+            color: #222;
+            font-size: 14px;
+            font-weight: normal;
+            margin: 0;
+        }
+
+        /* Footer Center */
+
+        .footer-distributed .footer-center {
+            width: 35%;
+        }
+
+        .footer-distributed .footer-center i {
+            background-color: #33383b;
+            color: #ffffff;
+            font-size: 25px;
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 42px;
+            margin: 10px 15px;
+            vertical-align: middle;
+        }
+
+        .footer-distributed .footer-center i.fa-envelope {
+            font-size: 17px;
+            line-height: 38px;
+        }
+
+        .footer-distributed .footer-center p {
+            display: inline-block;
+            color: #ffffff;
+            font-weight: 400;
+            vertical-align: middle;
+            margin: 0;
+        }
+
+        .footer-distributed .footer-center p span {
+            display: block;
+            font-weight: normal;
+            font-size: 14px;
+            line-height: 2;
+        }
+
+        .footer-distributed .footer-center p a {
+            color: lightseagreen;
+            text-decoration: none;
+            ;
+        }
+
+        .footer-distributed .footer-links a:before {
+            content: "|";
+            font-weight: 300;
+            font-size: 20px;
+            left: 0;
+            color: #fff;
+            display: inline-block;
+            padding-right: 5px;
+        }
+
+        .footer-distributed .footer-links .link-1:before {
+            content: none;
+        }
+
+        /* Footer Right */
+
+        .footer-distributed .footer-right {
+            width: 20px;
+        }
+
+
+
+        .footer-distributed .footer-icons {
+            margin-top: 5px;
+        }
+
+        .footer-distributed .footer-icons a {
+            display: inline-block;
+            width: 35px;
+            height: 35px;
+            cursor: pointer;
+            background-color: #33383b;
+            border-radius: 2px;
+
+            font-size: 20px;
+            color: #ffffff;
+            text-align: center;
+            line-height: 35px;
+
+            margin-right: .3px;
+            margin-bottom: 5px;
+        }
+
+        /* If you don't want the footer to be responsive, remove these media queries */
+
+        @media (max-width: 880px) {
+
+            .footer-distributed {
+                font: bold 14px sans-serif;
+            }
+
+            .footer-distributed .footer-left,
+            .footer-distributed .footer-center,
+            .footer-distributed .footer-right {
+                display: block;
+                width: 100%;
+                margin-bottom: 40px;
+                text-align: center;
+            }
+
+            .footer-distributed .footer-center i {
+                margin-left: 0;
+            }
+
+        }
+    </style>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+</head>
+
+<body>
+
+    <div class="center">
+        <div class="typewriter">
+            <h1>DRDO Presents!<br>
+                Ghost-Protocal--></h1>
+            <!-- <h1>Access?</h1> -->
+        </div>
+        <form id="myForm" onsubmit="return validateForm()" action="home.html">
+            <!-- <label for="username">Username (Email or Phone):</label> -->
+            <div class="txt_field h1">
+                <input type="text" class="form-field" id="username" name="username" placeholder="DRDO - ID">
+            </div>
+            <div class="txt_field h2">
+                <!-- <label for="password">Password:</label> -->
+                <input type="password" class="form-field" id="password" name="password" placeholder="password">
+            </div>
+            <input type="submit" value="Login">
+            <div class="pass"><a href="portfolio.html" onclick="hClick()">Our Inspiration</a></div>
+        </form>
+    </div>
+    <script>
+        //       $(document).ready(function() {
+        //     $('.form-field').on('input', function() {
+        //         var currentField = $(this);
+        //         var nextField = currentField.next('.form-field');
+
+        //         if (currentField.val().trim() !== '') {
+        //             // If the current field is filled, show the next field
+        //             nextField.show();
+        //         }
+        //     });
+        // });
+        function port() {
+
+            // Use Text-to-Speech API for mission success
+            var successMessage = `Our inspiration Late Shree Dr. APJ Abdul kalam..`;
+
+            // Create a new speech synthesis utterance
+            var utterance = new SpeechSynthesisUtterance(successMessage);
+
+            // Speak the mission success message
+            speechSynthesis.speak(utterance);
+        }
+        function hClick() {
+            // Your logic here
+            port();
+        }
+
+
+        function validateForm() {
+            var username = document.getElementById("username").value;
+            var password = document.getElementById("password").value;
+            var errorMsg = "";
+
+            // Check if username is empty
+            if (username.trim() === "") {
+                errorMsg += "Username cannot be empty. \n";
+                // alert(errorMsg);
+            }
+
+            if (password !== '123') {
+                errorMsg += "Incorrect password!\n";
+            }
+
+            if (password === "") {
+                errorMsg += "Password cannot be empty. \n";
+                // alert(errorMsg);
+            }
+
+
+            if (errorMsg === "") {
+                missionSuccessVoiceCommand();
+                return true;
+            }
+
+            alert(errorMsg);
+            return false;
+        }
+
+
+        //   .test() - true or false
+
+        function missionSuccessVoiceCommand() {
+            var nm = document.getElementById("username").value;
+
+            // Use Text-to-Speech API for mission success
+            var successMessage = `Welcome to DRDO AIRBORNE DEFENCE SYSTEM FACILITY ${nm}`;
+
+            // Create a new speech synthesis utterance
+            var utterance = new SpeechSynthesisUtterance(successMessage);
+
+            // Speak the mission success message
+            speechSynthesis.speak(utterance);
+
+            localStorage.setItem('username', nm);
+        }
+
+    </script>
+
+
+
+    </div>
+    </form>
+    </div>
+
+    <!-- <section>Footer Example 4</section> -->
+    <footer class="footer-distributed">
+
+
+
+
+        <div class="footer-center">
+            <p class="copyright">&copy;Copyright 2024 by <a
+                    href="https://www.linkedin.com/in/nisarg-vashi-b05211282/">Nisarg Vashi<i
+                        class="fa fa-linkedin"></i></a></p>
+        </div>
+    </footer>
+
+
+</body>
+
+</html>
